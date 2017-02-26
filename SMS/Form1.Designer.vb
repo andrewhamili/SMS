@@ -32,6 +32,24 @@ Partial Class Form1
         Me.btnSend = New System.Windows.Forms.Button()
         Me.btnRefreshList = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.ListView1 = New System.Windows.Forms.ListView()
+        Me.ColumnHeader1 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader2 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader3 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader4 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader5 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.ColumnHeader6 = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.ListBox1 = New System.Windows.Forms.ListBox()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Button3 = New System.Windows.Forms.Button()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ComboBox1
@@ -39,7 +57,7 @@ Partial Class Form1
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.Location = New System.Drawing.Point(41, 60)
         Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(381, 21)
+        Me.ComboBox1.Size = New System.Drawing.Size(508, 21)
         Me.ComboBox1.TabIndex = 0
         '
         'SerialPort1
@@ -73,13 +91,14 @@ Partial Class Form1
         'txt_message
         '
         Me.txt_message.Location = New System.Drawing.Point(41, 214)
+        Me.txt_message.Multiline = True
         Me.txt_message.Name = "txt_message"
-        Me.txt_message.Size = New System.Drawing.Size(244, 20)
+        Me.txt_message.Size = New System.Drawing.Size(244, 52)
         Me.txt_message.TabIndex = 4
         '
         'btnSend
         '
-        Me.btnSend.Location = New System.Drawing.Point(41, 241)
+        Me.btnSend.Location = New System.Drawing.Point(41, 272)
         Me.btnSend.Name = "btnSend"
         Me.btnSend.Size = New System.Drawing.Size(75, 23)
         Me.btnSend.TabIndex = 5
@@ -88,7 +107,7 @@ Partial Class Form1
         '
         'btnRefreshList
         '
-        Me.btnRefreshList.Location = New System.Drawing.Point(429, 57)
+        Me.btnRefreshList.Location = New System.Drawing.Point(555, 58)
         Me.btnRefreshList.Name = "btnRefreshList"
         Me.btnRefreshList.Size = New System.Drawing.Size(75, 23)
         Me.btnRefreshList.TabIndex = 6
@@ -104,11 +123,96 @@ Partial Class Form1
         Me.Button1.Text = "Button1"
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'TextBox1
+        '
+        Me.TextBox1.Location = New System.Drawing.Point(386, 121)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(100, 20)
+        Me.TextBox1.TabIndex = 8
+        Me.TextBox1.Text = "AT+CMGL=""ALL"""
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5})
+        Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Right
+        Me.DataGridView1.Location = New System.Drawing.Point(636, 0)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(364, 497)
+        Me.DataGridView1.TabIndex = 9
+        '
+        'ListView1
+        '
+        Me.ListView1.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.ColumnHeader1, Me.ColumnHeader2, Me.ColumnHeader3, Me.ColumnHeader4, Me.ColumnHeader5, Me.ColumnHeader6})
+        Me.ListView1.Location = New System.Drawing.Point(22, 319)
+        Me.ListView1.Name = "ListView1"
+        Me.ListView1.Size = New System.Drawing.Size(527, 139)
+        Me.ListView1.TabIndex = 11
+        Me.ListView1.UseCompatibleStateImageBehavior = False
+        Me.ListView1.View = System.Windows.Forms.View.Details
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(395, 179)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.TabIndex = 12
+        Me.Button2.Text = "Button2"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'ListBox1
+        '
+        Me.ListBox1.FormattingEnabled = True
+        Me.ListBox1.Location = New System.Drawing.Point(492, 121)
+        Me.ListBox1.Name = "ListBox1"
+        Me.ListBox1.Size = New System.Drawing.Size(120, 95)
+        Me.ListBox1.TabIndex = 13
+        '
+        'Column1
+        '
+        Me.Column1.HeaderText = "Column1"
+        Me.Column1.Name = "Column1"
+        '
+        'Column2
+        '
+        Me.Column2.HeaderText = "Column2"
+        Me.Column2.Name = "Column2"
+        '
+        'Column3
+        '
+        Me.Column3.HeaderText = "Column3"
+        Me.Column3.Name = "Column3"
+        '
+        'Column4
+        '
+        Me.Column4.HeaderText = "Column4"
+        Me.Column4.Name = "Column4"
+        '
+        'Column5
+        '
+        Me.Column5.HeaderText = "Column5"
+        Me.Column5.Name = "Column5"
+        '
+        'Button3
+        '
+        Me.Button3.Location = New System.Drawing.Point(335, 230)
+        Me.Button3.Name = "Button3"
+        Me.Button3.Size = New System.Drawing.Size(75, 23)
+        Me.Button3.TabIndex = 14
+        Me.Button3.Text = "Button3"
+        Me.Button3.UseVisualStyleBackColor = True
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(529, 277)
+        Me.ClientSize = New System.Drawing.Size(1000, 497)
+        Me.Controls.Add(Me.Button3)
+        Me.Controls.Add(Me.ListBox1)
+        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.ListView1)
+        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.TextBox1)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.btnRefreshList)
         Me.Controls.Add(Me.btnSend)
@@ -119,6 +223,7 @@ Partial Class Form1
         Me.Controls.Add(Me.ComboBox1)
         Me.Name = "Form1"
         Me.Text = "Form1"
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -132,5 +237,22 @@ Partial Class Form1
     Friend WithEvents btnSend As System.Windows.Forms.Button
     Friend WithEvents btnRefreshList As System.Windows.Forms.Button
     Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
+    Friend WithEvents ListView1 As System.Windows.Forms.ListView
+    Friend WithEvents ColumnHeader1 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader2 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader3 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader4 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader5 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents ColumnHeader6 As System.Windows.Forms.ColumnHeader
+    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents ListBox1 As System.Windows.Forms.ListBox
+    Friend WithEvents Column1 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Column3 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Column4 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Column5 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Button3 As System.Windows.Forms.Button
 
 End Class

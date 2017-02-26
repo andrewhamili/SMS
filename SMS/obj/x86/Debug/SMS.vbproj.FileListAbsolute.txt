@@ -1,0 +1,9 @@
+C:\Users\Andrew\Documents\Visual Studio 2010\Projects\SMS\SMS\bin\Debug\SMS.exe
+C:\Users\Andrew\Documents\Visual Studio 2010\Projects\SMS\SMS\bin\Debug\SMS.pdb
+C:\Users\Andrew\Documents\Visual Studio 2010\Projects\SMS\SMS\bin\Debug\SMS.xml
+C:\Users\Andrew\Documents\Visual Studio 2010\Projects\SMS\SMS\obj\x86\Debug\SMS.Form1.resources
+C:\Users\Andrew\Documents\Visual Studio 2010\Projects\SMS\SMS\obj\x86\Debug\SMS.Resources.resources
+C:\Users\Andrew\Documents\Visual Studio 2010\Projects\SMS\SMS\obj\x86\Debug\SMS.vbproj.GenerateResource.Cache
+C:\Users\Andrew\Documents\Visual Studio 2010\Projects\SMS\SMS\obj\x86\Debug\SMS.exe
+C:\Users\Andrew\Documents\Visual Studio 2010\Projects\SMS\SMS\obj\x86\Debug\SMS.xml
+C:\Users\Andrew\Documents\Visual Studio 2010\Projects\SMS\SMS\obj\x86\Debug\SMS.pdb
