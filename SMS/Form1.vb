@@ -253,6 +253,8 @@ Public Class Form1
 
     Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
         Win32.AllocConsole()
-
+        Thread.Sleep(1000)
+        Dim a As Integer = 165 / 160
+        Console.WriteLine(a)
     End Sub
 End Class

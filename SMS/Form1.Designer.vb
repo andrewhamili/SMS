@@ -93,7 +93,6 @@ Partial Class Form1
         'txt_message
         '
         Me.txt_message.Location = New System.Drawing.Point(41, 214)
-        Me.txt_message.MaxLength = 240
         Me.txt_message.Multiline = True
         Me.txt_message.Name = "txt_message"
         Me.txt_message.Size = New System.Drawing.Size(244, 52)
