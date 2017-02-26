@@ -9,13 +9,12 @@ Public Class Form1
     Public myPort As Array
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+       
         lbl_serial.BackColor = Color.Red
         queryCOMPorts()
-        Win32.AllocConsole()
-        'Win32.FreeConsole()
     End Sub
     Private Sub SerialPort1_datareceived(ByVal sender As Object, ByVal e As System.IO.Ports.SerialDataReceivedEventArgs) Handles SerialPort1.DataReceived
-
+        rcvdata = ""
         Dim datain As String = ""
         Dim numbytes As Integer = SerialPort1.BytesToRead
         For i As Integer = 1 To numbytes
@@ -47,6 +46,8 @@ Public Class Form1
     End Function
 
     Private Sub btnConnect_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnConnect.Click
+
+        
         Try
             With SerialPort1
                 .PortName = lbl_serial.Text
@@ -67,6 +68,8 @@ Public Class Form1
             Else
                 MsgBox("Error Connecting to " & lbl_serial.Text & "")
             End If
+
+
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
@@ -81,61 +84,41 @@ Public Class Form1
 
     Private Sub btnSend_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSend.Click
         If SerialPort1.IsOpen Then
-
-            Dim looper As Integer = 1
-            Dim page1, page2, page3 As String
+            Dim page1, page2 As Integer
+            Dim fulltext As String
+            Dim splitted() As String
             If txt_message.Text.Length > 160 Then
-                page1 = "(1/2)" & txt_message.Text.Substring(0, 154)
-                page2 = "(2/2)" & txt_message.Text.Substring(160, txt_message.Text.Length - 160)
-
-                
-                If page2 = String.Empty = False Then
-                    looper += 1
-                End If
+                fulltext = txt_message.Text
+                fulltext = fulltext.Insert(0, "(1/2)" & vbCrLf)
+                fulltext = fulltext.Insert(160, "@@(2/2)" & vbCrLf)
+                splitted = Split(fulltext, "@@", , CompareMethod.Text)
             End If
             
-            Dim sendloop As Integer
-            Dim substringer As Integer = 0
-            Dim ending As Integer = 154
-            While sendloop <> looper
-
+            Dim i As Integer = 0
+            While i <> 2
                 With SerialPort1
                     .Write("AT" & vbCr)
                     .Write("AT+CMGF=1" & vbCr)
-                    .Write("AT+CMGS=" & Chr(34) & txt_recepient.Text & Chr(34) & vbCr)
-                    .Write("(" & sendloop + 1 & "/" & looper & ") " & txt_message.Text.Substring(substringer, ending) & "")
-                    ending = txt_message.Text.Remove(substringer, ending).Length
-                    substringer = 153
-                    Thread.Sleep(1000)
-                    MsgBox(rcvdata.ToString)
+                    Console.WriteLine(splitted(i).Length)
+                    .Write("AT+CMGS=" & Chr(34) & txt_recepient.Text & Chr(34) & vbCr & Chr(26))
+                    .Write(splitted(i) & Chr(26))
+                    Thread.Sleep(2000)
                     rcvdata = ""
-                    .Write(Chr(26))
                 End With
-                sendloop += 1
                 Thread.Sleep(1000)
+                i += 1
             End While
-            
 
         End If
 
     End Sub
     Public Sub queryCOMPorts()
-        'Dim i As Integer = 0
-        'ComboBox1.Items.Clear()
-        'Dim ports() As String
-        'ports = Split(ModemsConnected(), "---")
-        'While i <> ports.Length
-        '    ComboBox1.Items.Add(ports(i))
-        '    i += 1
-        'End While
-
-        myPort = IO.Ports.SerialPort.GetPortNames()
-        For i = 0 To UBound(myPort)
-            ComboBox1.Items.Add(myPort(i))
+        ComboBox1.Items.Clear()
+        Dim ports() As String
+        ports = Split(ModemsConnected, "***")
+        For i As Integer = 0 To ports.Length - 2
+            ComboBox1.Items.Add(ports(i))
         Next
-
-
-
     End Sub
 
     Private Sub btnRefreshList_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRefreshList.Click
@@ -151,7 +134,6 @@ Public Class Form1
             Console.WriteLine("AT+CMGL=""All""" & vbCrLf)
             Thread.Sleep(1000)
             'MsgBox(rcvdata.ToString)
-            Clipboard.SetText(rcvdata.ToString)
             read()
             rcvdata = ""
         End With
@@ -245,7 +227,7 @@ Public Class Form1
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
         If SerialPort1.IsOpen Then
             With SerialPort1
-                .Write("AT+CMEE=2" & vbCrLf)
+                '.Write("AT+CMEE=2" & vbCrLf)
                 .Write(TextBox1.Text & vbCrLf)
             End With
         End If
@@ -260,4 +242,17 @@ Public Class Form1
         End Function
 
     End Class
+
+    Private Sub NotifyIcon1_MouseDoubleClick(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles NotifyIcon1.MouseDoubleClick
+        If Win32.AllocConsole = False Then
+            Win32.AllocConsole()
+        Else
+            Win32.FreeConsole()
+        End If
+    End Sub
+
+    Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
+        Win32.AllocConsole()
+
+    End Sub
 End Class

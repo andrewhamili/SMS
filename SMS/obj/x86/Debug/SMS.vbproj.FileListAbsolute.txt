@@ -7,3 +7,4 @@ C:\Users\Andrew\Documents\Visual Studio 2010\Projects\SMS\SMS\obj\x86\Debug\SMS.
 C:\Users\Andrew\Documents\Visual Studio 2010\Projects\SMS\SMS\obj\x86\Debug\SMS.exe
 C:\Users\Andrew\Documents\Visual Studio 2010\Projects\SMS\SMS\obj\x86\Debug\SMS.xml
 C:\Users\Andrew\Documents\Visual Studio 2010\Projects\SMS\SMS\obj\x86\Debug\SMS.pdb
+C:\Users\Andrew\Documents\Visual Studio 2010\Projects\SMS\SMS\bin\Debug\tada.wav
