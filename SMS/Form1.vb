@@ -84,15 +84,33 @@ Public Class Form1
 
     Private Sub btnSend_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSend.Click
         If SerialPort1.IsOpen Then
-            Dim page1, page2 As Integer
-            Dim fulltext As String
+            Dim texts As New List(Of String)
+            Dim fulltext As String = txt_message.Text
+            Dim computation As Integer
+            Select Case fulltext.Length / 160
+                Case 0.0 To 0.99
+                    computation = 1
+                Case 1.0 To 1.99
+                    computation = 2
+                Case 2.0 To 2.99
+                    computation = 3
+            End Select
+
+            Dim splitting As Integer
+            Dim insertposition As Integer
+            While splitting <> computation
+
+                fulltext.Insert(insertposition, "(" & splitting + 1 & "/" & computation & ")")
+
+            End While
+
             Dim splitted() As String
-            If txt_message.Text.Length > 160 Then
-                fulltext = txt_message.Text
-                fulltext = fulltext.Insert(0, "(1/2)" & vbCrLf)
-                fulltext = fulltext.Insert(160, "@@(2/2)" & vbCrLf)
-                splitted = Split(fulltext, "@@", , CompareMethod.Text)
-            End If
+            'If txt_message.Text.Length >= 155 Then
+            '    fulltext = txt_message.Text
+            '    fulltext = fulltext.Insert(0, "(1/2)" & vbCrLf)
+            '    fulltext = fulltext.Insert(160, "@@(2/2)" & vbCrLf)
+            '    splitted = Split(fulltext, "@@", , CompareMethod.Text)
+            'End If
             
             Dim i As Integer = 0
             While i <> 2
@@ -256,5 +274,90 @@ Public Class Form1
         Thread.Sleep(1000)
         Dim a As Integer = 165 / 160
         Console.WriteLine(a)
+    End Sub
+
+    Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
+        Dim texts As New List(Of String)
+        Dim fulltext As String = txt_message.Text
+        Dim computation As Integer
+        Select Case fulltext.Length / 160
+            Case 0.0 To 1.0
+                computation = 1
+            Case 1.0001 To 2.0
+                computation = 2
+            Case 2.0001 To 3.0
+                computation = 3
+            Case 3.0001 To 4.0
+                computation = 4
+            Case 4.0001 To 5.0
+                computation = 5
+        End Select
+        MsgBox(computation)
+
+        Dim splitting As Integer
+        Dim insertposition As Integer
+        While splitting <> computation
+
+
+            fulltext = fulltext.Insert(insertposition, "@@(" & splitting + 1 & "/" & computation & ")")
+            insertposition += 160
+            splitting += 1
+        End While
+        MsgBox(fulltext)
+        'Clipboard.SetText(fulltext)
+        Select Case fulltext.Length / 160
+            Case 0.0 To 1.0
+                MsgBox("1 page")
+                computation = 1
+            Case 1.0001 To 2.0
+                MsgBox("2 page")
+                computation = 2
+            Case 2.0001 To 3.0
+                MsgBox("3 page")
+                computation = 3
+            Case 3.0001 To 4.0
+                MsgBox("4 page")
+                computation = 4
+            Case 4.0001 To 5.0
+                MsgBox("5 page")
+                computation = 5
+        End Select
+        MsgBox(fulltext.Length)
+        MsgBox(computation)
+        Dim looper As Integer = 1
+        Dim done() As String = Split(fulltext, "@@", , CompareMethod.Text)
+        While looper <= computation
+            MsgBox(done(looper))
+            looper += 1
+        End While
+
+    End Sub
+
+    Private Sub Button5_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button5.Click
+        Dim a As String = "A@B@C"
+        Dim looper As Integer
+        While looper <> 3
+            Dim b() As String = Split(a, "@", 160, CompareMethod.Text)
+            MsgBox(b(looper))
+            looper += 1
+        End While
+
+    End Sub
+
+    Private Sub txt_message_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles txt_message.TextChanged
+        lblLength.Text = txt_message.Text.Length
+        lblpagecounter.Text = txt_message.Text.Length / 160
+        Select Case Val(lblpagecounter.Text)
+            Case 0.0 To 1.0
+                lblPageNumber.Text = 1
+            Case 1.0001 To 2.0
+                lblPageNumber.Text = 2
+            Case 2.0001 To 3.0
+                lblPageNumber.Text = 3
+            Case 3.0001 To 4.0
+                lblPageNumber.Text = 4
+            Case 4.0001 To 5.0
+                lblPageNumber.Text = 5
+        End Select
     End Sub
 End Class

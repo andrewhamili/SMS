@@ -51,6 +51,10 @@ Partial Class Form1
         Me.Button3 = New System.Windows.Forms.Button()
         Me.NotifyIcon1 = New System.Windows.Forms.NotifyIcon(Me.components)
         Me.Button4 = New System.Windows.Forms.Button()
+        Me.Button5 = New System.Windows.Forms.Button()
+        Me.lblLength = New System.Windows.Forms.Label()
+        Me.lblpagecounter = New System.Windows.Forms.Label()
+        Me.lblPageNumber = New System.Windows.Forms.Label()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -218,11 +222,51 @@ Partial Class Form1
         Me.Button4.Text = "Button4"
         Me.Button4.UseVisualStyleBackColor = True
         '
+        'Button5
+        '
+        Me.Button5.Location = New System.Drawing.Point(474, 253)
+        Me.Button5.Name = "Button5"
+        Me.Button5.Size = New System.Drawing.Size(75, 23)
+        Me.Button5.TabIndex = 16
+        Me.Button5.Text = "Button5"
+        Me.Button5.UseVisualStyleBackColor = True
+        '
+        'lblLength
+        '
+        Me.lblLength.AutoSize = True
+        Me.lblLength.Location = New System.Drawing.Point(246, 272)
+        Me.lblLength.Name = "lblLength"
+        Me.lblLength.Size = New System.Drawing.Size(39, 13)
+        Me.lblLength.TabIndex = 17
+        Me.lblLength.Text = "Label1"
+        '
+        'lblpagecounter
+        '
+        Me.lblpagecounter.AutoSize = True
+        Me.lblpagecounter.Location = New System.Drawing.Point(291, 235)
+        Me.lblpagecounter.Name = "lblpagecounter"
+        Me.lblpagecounter.Size = New System.Drawing.Size(39, 13)
+        Me.lblpagecounter.TabIndex = 18
+        Me.lblpagecounter.Text = "Label1"
+        '
+        'lblPageNumber
+        '
+        Me.lblPageNumber.AutoSize = True
+        Me.lblPageNumber.Location = New System.Drawing.Point(292, 272)
+        Me.lblPageNumber.Name = "lblPageNumber"
+        Me.lblPageNumber.Size = New System.Drawing.Size(39, 13)
+        Me.lblPageNumber.TabIndex = 19
+        Me.lblPageNumber.Text = "Label1"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1000, 497)
+        Me.Controls.Add(Me.lblPageNumber)
+        Me.Controls.Add(Me.lblpagecounter)
+        Me.Controls.Add(Me.lblLength)
+        Me.Controls.Add(Me.Button5)
         Me.Controls.Add(Me.Button4)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.ListBox1)
@@ -273,5 +317,9 @@ Partial Class Form1
     Friend WithEvents Button3 As System.Windows.Forms.Button
     Friend WithEvents NotifyIcon1 As System.Windows.Forms.NotifyIcon
     Friend WithEvents Button4 As System.Windows.Forms.Button
+    Friend WithEvents Button5 As System.Windows.Forms.Button
+    Friend WithEvents lblLength As System.Windows.Forms.Label
+    Friend WithEvents lblpagecounter As System.Windows.Forms.Label
+    Friend WithEvents lblPageNumber As System.Windows.Forms.Label
 
 End Class
